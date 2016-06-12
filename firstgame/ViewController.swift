@@ -29,12 +29,14 @@ class ViewController: UIViewController {
    
     func generateRandomKnight() {
     let randomHpPlayer = Int(arc4random_uniform(50)+50)
-   player1 = Knight(hp: randomHpPlayer, attackPw: 20)
+    let randomAttackPw = Int(arc4random_uniform(20)+1)
+   player1 = Knight(hp: randomHpPlayer, attackPw: randomAttackPw)
     }
     
     func generateRandomOrc(){
         let randomHpPlayer = Int(arc4random_uniform(50)+50)
-     player2 = Orc(hp: randomHpPlayer, attackPw: 20)
+        let randomAttackPw = Int(arc4random_uniform(20)+1)
+     player2 = Orc(hp: randomHpPlayer, attackPw: randomAttackPw)
     }
     
     func startGame(){
@@ -62,6 +64,15 @@ class ViewController: UIViewController {
             restartBtn.hidden = false
         
     }
+    func disableAttackbtns(){
+        attackBtnKnight.enabled = false
+        attackBtnOrc.enabled = false
+        
+    }
+    func enableAttackBtns()  {
+        attackBtnKnight.enabled = true
+        attackBtnOrc.enabled = true
+    }
     
     @IBAction func knightAttack(sender: AnyObject) {
       
@@ -72,6 +83,8 @@ class ViewController: UIViewController {
             }else{
                 battleScreen.text = "Knight Attack wasn't successfull"
         }
+          disableAttackbtns()
+          NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: #selector(ViewController.enableAttackBtns), userInfo: nil, repeats: false)
         if !player1.isAlive {
             battleScreen.text = "Knight won!!!"
             deadPlayerActions()
@@ -87,6 +100,8 @@ class ViewController: UIViewController {
         }else{
             battleScreen.text = "Orc Attack wasn't successfull"
         }
+        disableAttackbtns()
+        NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: #selector(ViewController.enableAttackBtns), userInfo: nil, repeats: false)
         if !player2.isAlive {
             battleScreen.text = "Orc won!!!"
             deadPlayerActions()
