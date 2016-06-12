@@ -4,6 +4,11 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -86,9 +91,24 @@
                                 <color key="textColor" red="0.85479384820000004" green="0.2815933773" blue="0.11416080770000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8m-Bd-A5C">
+                                <rect key="frame" x="217" y="184" width="167" height="57"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="167" id="55I-lV-Hf9"/>
+                                    <constraint firstAttribute="height" constant="57" id="YgC-zd-HlE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <state key="normal" title="Restart" backgroundImage="player1attackbtn">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="restartTheGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qCj-63-RrB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="c8m-Bd-A5C" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3Y8-1U-uHk"/>
                             <constraint firstAttribute="trailing" secondItem="jOs-1x-zSP" secondAttribute="trailing" constant="20" id="4Eu-61-7ti"/>
                             <constraint firstAttribute="trailing" secondItem="Hmd-JF-gdK" secondAttribute="trailing" constant="70" id="Ial-wP-dFv"/>
                             <constraint firstAttribute="trailing" secondItem="oaf-Cx-HjO" secondAttribute="trailing" id="KM6-q3-eyf"/>
@@ -109,6 +129,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Hmd-JF-gdK" secondAttribute="bottom" constant="8" id="iEQ-ko-gKH"/>
                             <constraint firstItem="tpg-Lr-nJh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="lnX-Pn-1o9"/>
                             <constraint firstItem="eE3-0o-Rui" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="mav-8e-yIN"/>
+                            <constraint firstItem="c8m-Bd-A5C" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="nO0-Qq-DMX"/>
                             <constraint firstItem="4uf-5K-8FZ" firstAttribute="centerY" secondItem="Hmd-JF-gdK" secondAttribute="centerY" id="p8B-kj-RAh"/>
                             <constraint firstItem="jOs-1x-zSP" firstAttribute="leading" secondItem="cps-wH-MP5" secondAttribute="leading" constant="-125" id="s3J-e8-5rd"/>
                             <constraint firstItem="tpg-Lr-nJh" firstAttribute="top" secondItem="r5H-3a-4yc" secondAttribute="bottom" id="xf9-kc-DxT"/>
@@ -123,6 +144,7 @@
                         <outlet property="hpOrc" destination="r5H-3a-4yc" id="aj1-t0-rnP"/>
                         <outlet property="knightPlayer" destination="jOs-1x-zSP" id="BXs-Fl-DWk"/>
                         <outlet property="orcPlayer" destination="tpg-Lr-nJh" id="MuI-Tm-FFy"/>
+                        <outlet property="restartBtn" destination="c8m-Bd-A5C" id="jY4-K5-pgO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
